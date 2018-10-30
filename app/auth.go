@@ -2,7 +2,7 @@ package app
 
 import (
 	"net/http"
-	u "lens/utils"
+	u "go-contacts/utils"
 	"strings"
 	"go-contacts/models"
 	jwt "github.com/dgrijalva/jwt-go"
