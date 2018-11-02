@@ -2,7 +2,7 @@ package models
 
 import (
 	"github.com/dgrijalva/jwt-go"
-	u "lens/utils"
+	u "go-contacts/utils"
 	"strings"
 	"github.com/jinzhu/gorm"
 	"os"
