@@ -1,15 +1,15 @@
 package controllers
 
 import (
-	"net/http"
-	"go-contacts/models"
 	"encoding/json"
+	"go-contacts/models"
 	u "go-contacts/utils"
+	"net/http"
 )
 
 var CreateContact = func(w http.ResponseWriter, r *http.Request) {
 
-	user := r.Context().Value("user") . (uint) //Grab the id of the user that send the request
+	user := r.Context().Value("user").(uint) //Grab the id of the user that send the request
 	contact := &models.Contact{}
 
 	err := json.NewDecoder(r.Body).Decode(contact)
@@ -25,7 +25,7 @@ var CreateContact = func(w http.ResponseWriter, r *http.Request) {
 
 var GetContactsFor = func(w http.ResponseWriter, r *http.Request) {
 
-	id := r.Context().Value("user") . (uint)
+	id := r.Context().Value("user").(uint)
 	data := models.GetContacts(id)
 	resp := u.Message(true, "success")
 	resp["data"] = data

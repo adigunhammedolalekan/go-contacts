@@ -1,12 +1,12 @@
 package main
 
 import (
+	"fmt"
 	"github.com/gorilla/mux"
 	"go-contacts/app"
-	"os"
-	"fmt"
-	"net/http"
 	"go-contacts/controllers"
+	"net/http"
+	"os"
 )
 
 func main() {
@@ -29,7 +29,7 @@ func main() {
 
 	fmt.Println(port)
 
-	err := http.ListenAndServe(":" + port, router) //Launch the app, visit localhost:8000/api
+	err := http.ListenAndServe(":"+port, router) //Launch the app, visit localhost:8000/api
 	if err != nil {
 		fmt.Print(err)
 	}
