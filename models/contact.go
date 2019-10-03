@@ -1,16 +1,16 @@
 package models
 
 import (
-	u "go-contacts/utils"
-	"github.com/jinzhu/gorm"
 	"fmt"
+	"github.com/jinzhu/gorm"
+	u "go-contacts/utils"
 )
 
 type Contact struct {
 	gorm.Model
-	Name string `json:"name"`
-	Phone string `json:"phone"`
-	UserId uint `json:"user_id"` //The user that this contact belongs to
+	Name   string `json:"name"`
+	Phone  string `json:"phone"`
+	UserId uint   `json:"user_id"` //The user that this contact belongs to
 }
 
 /*
@@ -18,7 +18,7 @@ type Contact struct {
 
 returns message and true if the requirement is met
 */
-func (contact *Contact) Validate() (map[string] interface{}, bool) {
+func (contact *Contact) Validate() (map[string]interface{}, bool) {
 
 	if contact.Name == "" {
 		return u.Message(false, "Contact name should be on the payload"), false
@@ -36,7 +36,7 @@ func (contact *Contact) Validate() (map[string] interface{}, bool) {
 	return u.Message(true, "success"), true
 }
 
-func (contact *Contact) Create() (map[string] interface{}) {
+func (contact *Contact) Create() (map[string]interface{}) {
 
 	if resp, ok := contact.Validate(); !ok {
 		return resp
@@ -70,4 +70,3 @@ func GetContacts(user uint) ([]*Contact) {
 
 	return contacts
 }
-
