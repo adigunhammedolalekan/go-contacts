@@ -22,6 +22,8 @@ func main() {
 
 	//router.NotFoundHandler = app.NotFoundHandler
 
+	//serega
+
 	port := os.Getenv("PORT")
 	if port == "" {
 		port = "8000" //localhost
